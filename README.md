@@ -42,11 +42,11 @@ Q: Describe the default lifecycle of a JAX-RS Resource class. What issues arise 
 
 JAX-RS creates a new resource instance for each individual request, which is handled independently from others.
 
-Consequently, there is no way to store shared data inside the resource class as it is discarded immediately after handling. To overcome this, a singleton DataStore class was created.
+Consequently, shared data cannot be stored inside the resource class because it is discarded after the request finishes. To solve this, a singleton DataStore class was created. Because many requests may happen at the same time, shared in-memory data also needs to be managed safely using thread safe structures to avoid race conditions or data corruption.
 
 Q: Why is the concept of HATEOAS often referred to as the hallmark of RESTful design?
 
-According to HATEOAS, a RESTful API must provide hypermedia in its responses.
+HATEOAS means the API provides links to related resources in its responses.
 
 Thus, the client knows what actions it can perform without having predefined URLs. This also allows changes in the API in the future to occur without breaking existing functionality.
 
@@ -75,7 +75,7 @@ Path-based approach would make the API less flexible.
 
 ### Part 4 - Sub-Resources
 
-Q: How does sub-resource locator pattern bring benefits to architecture?
+Q: What are the benefits of the Sub-Resource Locator pattern?
 
 Sub-resources locator splits the logic into separate classes making it more scalable and maintainable.
 
@@ -85,16 +85,12 @@ Q: Why is it better to return HTTP 422 than 404 when no roomId referenced in the
 
 As the API endpoint is correct but content invalid, HTTP 422 is semantically more appropriate.
 
-Q: Why not return HTTP 400 instead of HTTP 422?
-
-As the request seems syntactically correct but still cannot be handled correctly, 422 status code is better.
-
 Q: Why is there a risk in returning a full internal trace?
 
-It is not a good practice to display internal errors that may help attacker identify potential vulnerabilities.
+It is not a good practice to display internal errors because they may help an attacker identify potential vulnerabilities.
 
-That's why the API returns an ambiguous error message in this case.
+A full stack trace can reveal class names, package names, method names, internal file structure, and framework details. That is why the API returns a general error message instead.
 
 Q: Why is it better to use JAX-RS filters rather than put Logger in all methods?
 
-It is possible to handle the logging in a single place rather than duplicate the code in all meth
+It is possible to handle the logging in a single place rather than duplicate the code in all methods.
