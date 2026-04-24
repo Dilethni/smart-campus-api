@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Smart Campus API
 
 This project is a RESTful Smart Campus API built using JAX-RS.  
@@ -82,3 +82,4 @@ A: It is not a good practice to display internal errors because they may help an
 Q3:Why is it advantageous to use JAX-RS filters for cross-cutting concerns like logging, rather than manually inserting Logger.info() statements inside every single resource method?
 
 A: It is possible to handle the logging in a single place rather than duplicate the code in all methods.
+

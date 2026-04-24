@@ -25,7 +25,7 @@ public class RoomResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createRoom(Room room) {
 
-        // ✅ FIX 1: Null body check
+
         if (room == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("{\"error\":\"Room body is required\"}")

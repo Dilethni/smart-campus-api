@@ -17,18 +17,18 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         final ResourceConfig rc = new ResourceConfig()
-                // Register resources manually
+
                 .register(DiscoveryResource.class)
                 .register(RoomResource.class)
                 .register(SensorResource.class)
-                // Register exception mappers
+
                 .register(RoomNotEmptyExceptionMapper.class)
                 .register(LinkedResourceNotFoundExceptionMapper.class)
                 .register(SensorUnavailableExceptionMapper.class)
                 .register(GlobalExceptionMapper.class)
-                // Register filter
+
                 .register(LoggingFilter.class)
-                // Register Jackson JSON
+
                 .register(JacksonJsonProvider.class);
 
         final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(

@@ -42,7 +42,7 @@ public class SensorReadingResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response addReading(SensorReading reading) {
 
-        // ✅ FIX 2: Null body check
+
         if (reading == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("{\"error\":\"Reading body is required\"}")
