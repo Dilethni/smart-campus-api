@@ -1,4 +1,4 @@
-### SmartCampusAPI
+#### SmartCampusAPI
  Project Overview
 
 The Smart Campus API is a RESTful web service built using JAX-RS. It is designed to manage campus infrastructure, focusing on Rooms, Sensors, and Sensor Readings.
@@ -61,28 +61,37 @@ Data Storage: Data is stored in-memory and resets on restart.
 
 ▶️ Setup and Execution
 📋 Prerequisites
+
 Java (JDK 17 or above)
 Apache Maven
 
 🔨 Build
+
 mvn clean package
 
 ▶️ Run
+
 java -jar target/smart-campus-api-1.0-SNAPSHOT.jar
 
 🌍 Access API
+
+
 http://localhost:8080/api/v1
 
 ➕ Create Room
+
  POST http://localhost:8080/api/v1/rooms \-H "Content-Type: application/json" \-d '{"id":"ROOM-001","name":"Lab 1","capacity":40}'
 
 📡 Create Sensor
+
  POST http://localhost:8080/api/v1/sensors \-H "Content-Type: application/json" \-d '{"id":"TEMP-001","type":"Temperature","status":"ACTIVE","roomId":"ROOM-001"}'
 
 📊 Add Reading
+
 POST http://localhost:8080/api/v1/sensors/TEMP-001/readings \-H "Content-Type: application/json" \-d '{"value":24.5}'
 
 📄 Get Readings
+
 http://localhost:8080/api/v1/sensors/TEMP-001/readings
 
 ---------------------------------------------------------------------------------
