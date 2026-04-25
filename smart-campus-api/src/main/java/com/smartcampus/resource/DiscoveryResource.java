@@ -13,9 +13,9 @@ public class DiscoveryResource {
     @GET
     public Response discover() {
         String json = "{"
-                + "\"name\":\"Smart Campus API\","
+                + "\"name\":\"Smart Campus Dilethni Abeysinghe\","
                 + "\"version\":\"1.0\","
-                + "\"contact\":\"admin@smartcampus.ac.uk\","
+                + "\"contact\":\"w2052710@westminster.ac.uk\","
                 + "\"resources\":{"
                 + "\"rooms\":\"/api/v1/rooms\","
                 + "\"sensors\":\"/api/v1/sensors\""
