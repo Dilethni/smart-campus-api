@@ -6,6 +6,7 @@ The Smart Campus API is a RESTful web service built using JAX-RS. It is designed
 This system enables administrators to create and manage rooms, deploy sensors within those rooms, and collect real-time sensor data for monitoring and analysis.
 
 ⭐ Key Features
+
 Room Management: Create and retrieve campus rooms.
 Sensor Management: Register sensors and associate them with rooms.
 Sensor Readings: Record and retrieve sensor data values.
@@ -14,6 +15,7 @@ Error Handling: Returns proper HTTP status codes (e.g., 409, 415).
 RESTful Design: Clean and scalable endpoint structure.
 
 🛠️ Technical Stack
+
 Language: Java
 Framework: JAX-RS
 Build Tool: Apache Maven
@@ -54,10 +56,11 @@ http://localhost:8080/api/v1
 
 
 ⚙️ Business Rules & Constraints
-Referential Integrity: Sensors must be linked to an existing room.
-Uniqueness: Duplicate sensor IDs are not allowed (returns 409 Conflict).
-Validation: Only JSON input is accepted (415 Unsupported Media Type otherwise).
-Data Storage: Data is stored in-memory and resets on restart.
+
+1. Referential Integrity: Sensors must be linked to an existing room.
+2. Uniqueness: Duplicate sensor IDs are not allowed (returns 409 Conflict).
+3. Validation: Only JSON input is accepted (415 Unsupported Media Type otherwise).
+4. Data Storage: Data is stored in-memory and resets on restart.
 
 ▶️ Setup and Execution
 📋 Prerequisites
