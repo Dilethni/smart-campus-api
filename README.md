@@ -66,31 +66,26 @@ Apache Maven
 
 🔨 Build
 mvn clean package
+
 ▶️ Run
-
 java -jar target/smart-campus-api-1.0-SNAPSHOT.jar
-🌍 Access API
 
+🌍 Access API
 http://localhost:8080/api/v1
 
 ➕ Create Room
-curl -X POST http://localhost:8080/api/v1/rooms \
--H "Content-Type: application/json" \
--d '{"id":"ROOM-001","name":"Lab 1","capacity":40}'
+ POST http://localhost:8080/api/v1/rooms \-H "Content-Type: application/json" \-d '{"id":"ROOM-001","name":"Lab 1","capacity":40}'
 
 📡 Create Sensor
-curl -X POST http://localhost:8080/api/v1/sensors \
--H "Content-Type: application/json" \
--d '{"id":"TEMP-001","type":"Temperature","status":"ACTIVE","roomId":"ROOM-001"}'
+ POST http://localhost:8080/api/v1/sensors \-H "Content-Type: application/json" \-d '{"id":"TEMP-001","type":"Temperature","status":"ACTIVE","roomId":"ROOM-001"}'
 
 📊 Add Reading
-curl -X POST http://localhost:8080/api/v1/sensors/TEMP-001/readings \
--H "Content-Type: application/json" \
--d '{"value":24.5}'
+POST http://localhost:8080/api/v1/sensors/TEMP-001/readings \-H "Content-Type: application/json" \-d '{"value":24.5}'
 
 📄 Get Readings
-curl http://localhost:8080/api/v1/sensors/TEMP-001/readings
+http://localhost:8080/api/v1/sensors/TEMP-001/readings
+
 ---------------------------------------------------------------------------------
-👨‍💻 Author
+
 Dilethni Abeysinghe 
 20220805
