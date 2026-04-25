@@ -25,7 +25,6 @@ public class RoomResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createRoom(Room room) {
 
-
         if (room == null) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("{\"error\":\"Room body is required\"}")
@@ -55,6 +54,7 @@ public class RoomResource {
     @Path("/{roomId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRoom(@PathParam("roomId") String roomId) {
+
         Room room = store.getRooms().get(roomId);
 
         if (room == null) {
@@ -70,6 +70,7 @@ public class RoomResource {
     @Path("/{roomId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteRoom(@PathParam("roomId") String roomId) {
+
         Room room = store.getRooms().get(roomId);
 
         if (room == null) {
@@ -85,5 +86,20 @@ public class RoomResource {
         store.getRooms().remove(roomId);
 
         return Response.noContent().build();
+    }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteAllRooms() {
+
+        if (!store.getSensors().isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("{\"error\":\"Delete sensors first before deleting rooms\"}")
+                    .build();
+        }
+
+        store.getRooms().clear();
+
+        return Response.ok("{\"message\":\"All rooms deleted\"}").build();
     }
 }
